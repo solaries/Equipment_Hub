@@ -11,9 +11,9 @@
                         <th>   </th> 
                         <th>equipment type</th>
                         <th>Number Of Units</th>
-                        <th>Rent Rate</th>
-                        <th>Rent Rate Qunatity</th>
-                        <th>Customer Company</th>
+                        <th>Requested Duration</th>
+                        <th>Tentative Bill</th>
+                        @*<th>Customer Company</th>*@
                         <th>Vendor Company</th>
                         <th>Activity Status</th>
                         <th>activity date</th>
@@ -35,12 +35,13 @@
                             ,Rent_Rate = item.Rent_rate
                             ,Number_Of_Units = item.Number_of_units
                             ,equipment_type = item.Equipment_type
+                            ,Rent_rate_data = item.Rent_rate_data
                                })</td> 
                            <td>@Html.DisplayFor(modelItem => item.Equipment_type_data)</td>
                            <td>@Html.DisplayFor(modelItem => item.Number_of_units)</td>
                            <td>@Html.DisplayFor(modelItem => item.Rent_rate_data)</td>
                            <td>@Html.DisplayFor(modelItem => item.Rent_rate_qunatity)</td>
-                           <td>@Html.DisplayFor(modelItem => item.Customer_company_data)</td>
+                           @*<td>@Html.DisplayFor(modelItem => item.Customer_company_data)</td>*@
                            <td>@Html.DisplayFor(modelItem => item.Vendor_company_data)</td>
                            <td>@Html.DisplayFor(modelItem => item.Activity_status_data)</td>
                            <td>@Html.DisplayFor(modelItem => item.Activity_date)</td>
@@ -55,7 +56,7 @@
                         <th>Number Of Units</th>
                         <th>Rent Rate</th>
                         <th>Rent Rate Qunatity</th>
-                        <th>Customer Company</th>
+                        @*<th>Customer Company</th>*@
                         <th>Vendor Company</th>
                         <th>Activity Status</th>
                         <th>activity date</th>

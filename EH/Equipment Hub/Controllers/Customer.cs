@@ -147,7 +147,7 @@ namespace Equipment_hub.Controllers
                             Session["Customer_company"] =  response[0].Company_name;
                             Session["token"] = token;
                             Session["Password"] = Password;
-                            return RedirectToAction("Change_Password", "Customer"); 
+                            return RedirectToAction("view_Equipment_Activity", "Customer"); 
                         }
                     }
                     else
@@ -411,7 +411,7 @@ namespace Equipment_hub.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult edit_Equipment_Activity(string id,string Equipment_type,string Number_of_units,string Rent_rate,string Rent_rate_qunatity,string Customer_company,string Vendor_company,string Activity_status,string Activity_date  )
+        public ActionResult edit_Equipment_Activity(string id, string Equipment_type, string Number_of_units, string Rent_rate, string Rent_rate_qunatity, string Customer_company, string Vendor_company, string Activity_status, string Activity_date, string Rent_rate_data)
         {  
                 Audit.protocol();
             if(Session["userType"] == null){ 
@@ -436,6 +436,7 @@ namespace Equipment_hub.Controllers
  ViewBag.Vendor_company = Vendor_company;
  ViewBag.Activity_status = Activity_status;
  ViewBag.Activity_date = Activity_date;
+ ViewBag.Rent_rate_data = Rent_rate_data;
 
             return View();
         } 

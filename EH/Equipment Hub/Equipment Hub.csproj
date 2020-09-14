@@ -169,6 +169,7 @@
     <Compile Include="Models\Duration_Type.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Equipment_Activity.cs" />
+    <Compile Include="Models\Equipment_Activity_Movement.cs" />
     <Compile Include="Models\Equipment_Type.cs" />
     <Compile Include="Models\Rent_Rate.cs" />
     <Compile Include="Models\right_Admin.cs" />

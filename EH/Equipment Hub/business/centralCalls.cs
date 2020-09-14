@@ -639,89 +639,90 @@ namespace Equipment_hub.BusinessLogic
             }
             return response;
         }
-        public static string add_new_Equipment_Activity(string Equipment_type,string Number_of_units,string Rent_rate,string Rent_rate_qunatity,string Customer_company,string Vendor_company,string Activity_status,string Activity_date, bool returnID = false )
-        { 
-            string response = ""; 
-            Equipment_Activity c = new Equipment_Activity();  
+
+
+
+
+
+        public static string add_new_Equipment_Activity(string Equipment_type, string Number_of_units, string Rent_rate, string Rent_rate_qunatity, string Customer_company, string Vendor_company,string Activity_status,string Activity_date, bool returnID = false)
+        {
+            string response = "";
+            Equipment_Activity c = new Equipment_Activity();
             string data = "";
             try
-            { 
+            {
 
-                Equipment_hub_Equipment_Activity cust = new Equipment_hub_Equipment_Activity(); 
-                cust.Equipment_type =  long.Parse( Equipment_type == null ? "1" : Equipment_type)  ;
+                Equipment_hub_Equipment_Activity cust = new Equipment_hub_Equipment_Activity();
+                cust.Equipment_type = long.Parse(Equipment_type == null ? "1" : Equipment_type);
                 data += ",Equipment_type : " + Equipment_type;
-                cust.Number_of_units =  Int16.Parse( Number_of_units == null ? "1" : Number_of_units)  ;
-                 data += ",Number_of_units : " + Number_of_units;
-                cust.Rent_rate =  long.Parse( Rent_rate == null ? "1" : Rent_rate)  ;
-                 data += ",Rent_rate : " + Rent_rate;
-                cust.Rent_rate_qunatity =  Int16.Parse( Rent_rate_qunatity == null ? "1" : Rent_rate_qunatity)  ;
-                 data += ",Rent_rate_qunatity : " + Rent_rate_qunatity;
-                cust.Customer_company =  long.Parse( Customer_company == null ? "1" : Customer_company)  ;
-                 data += ",Customer_company : " + Customer_company;
-                cust.Vendor_company =  long.Parse( Vendor_company == null ? "1" : Vendor_company)  ;
-                 data += ",Vendor_company : " + Vendor_company;
-                cust.Activity_status =  long.Parse( Activity_status == null ? "1" : Activity_status)  ;
-                 data += ",Activity_status : " + Activity_status;
-                 cust.Activity_date = System.DateTime.Now;
-                response = c.add_Equipment_Activity(cust,  returnID  );
-               if( returnID  ){
-                    Audit.InsertAudit((int)eventzz.SUCCESSFUL_EQUIPMENT_ACTIVITY_ADD, data, getVal(), true); 
+                cust.Number_of_units = Int16.Parse(Number_of_units == null ? "1" : Number_of_units);
+                data += ",Number_of_units : " + Number_of_units;
+                cust.Rent_rate = long.Parse(Rent_rate == null ? "1" : Rent_rate);
+                data += ",Rent_rate : " + Rent_rate;
+                cust.Rent_rate_qunatity = Int16.Parse(Rent_rate_qunatity == null ? "1" : Rent_rate_qunatity);
+                data += ",Rent_rate_qunatity : " + Rent_rate_qunatity;
+                cust.Customer_company = long.Parse(Customer_company == null ? "1" : Customer_company);
+                data += ",Customer_company : " + Customer_company;
+                cust.Vendor_company = long.Parse(Vendor_company == null ? "1" : Vendor_company);
+                data += ",Vendor_company : " + Vendor_company;
+                response = c.add_Equipment_Activity(cust, Activity_status, returnID);
+                if (returnID)
+                {
+                    Audit.InsertAudit((int)eventzz.SUCCESSFUL_EQUIPMENT_ACTIVITY_ADD, data, getVal(), true);
                     return response;
-               }
+                }
                 if (response.Trim().Length > 0)
                 {
                     Audit.InsertAudit((int)eventzz.FAILED_EQUIPMENT_ACTIVITY_ADD, response + " (" + data + ")", getVal(), true);
                     response = "failed create attempt";
                 }
                 else
-                { 
-                    response = "Creation successful"; 
-                    Audit.InsertAudit((int)eventzz.SUCCESSFUL_EQUIPMENT_ACTIVITY_ADD, data, getVal(), true); 
-                } 
+                {
+                    response = "Creation successful";
+                    Audit.InsertAudit((int)eventzz.SUCCESSFUL_EQUIPMENT_ACTIVITY_ADD, data, getVal(), true);
+                }
             }
             catch (Exception d)
             {
                 response = "Error adding Equipment_Activity";
-                Audit.InsertAudit((int)eventzz.ERROR_EQUIPMENT_ACTIVITY_ADD, d.Message + "  " + (d.InnerException != null ? d.InnerException.Message : "") + " (  " + data + " ) ", getVal(), true); 
+                Audit.InsertAudit((int)eventzz.ERROR_EQUIPMENT_ACTIVITY_ADD, d.Message + "  " + (d.InnerException != null ? d.InnerException.Message : "") + " (  " + data + " ) ", getVal(), true);
             }
             return response;
         }
         public static List<Equipment_hub_Equipment_Activity_data> get_Equipment_Activity(string sql)
-        { 
+        {
             List<Equipment_hub_Equipment_Activity_data> response = null;
             try
-            { 
-                Equipment_Activity c = new Equipment_Activity(); 
-                response = c.get_Equipment_Activity_linked(sql); 
+            {
+                Equipment_Activity c = new Equipment_Activity();
+                response = c.get_Equipment_Activity_linked(sql);
             }
             catch (Exception d)
             {
-                Audit.InsertAudit((int)eventzz.ERROR_EQUIPMENT_ACTIVITY_GET, d.Message + "  " + (d.InnerException != null ? d.InnerException.Message : ""), getVal(), true); 
-            }  
+                Audit.InsertAudit((int)eventzz.ERROR_EQUIPMENT_ACTIVITY_GET, d.Message + "  " + (d.InnerException != null ? d.InnerException.Message : ""), getVal(), true);
+            }
             return response;
         }
-        public static string update_Equipment_Activity( string id, string oEquipment_type,string oNumber_of_units,string oRent_rate,string oRent_rate_qunatity,string oCustomer_company,string oVendor_company,string oActivity_status,string oActivity_date,string Equipment_type,string Number_of_units,string Rent_rate,string Rent_rate_qunatity,string Customer_company,string Vendor_company,string Activity_status,string Activity_date, bool andPassword = true) 
-        { 
-            string response = ""; 
-            Equipment_Activity c = new Equipment_Activity();   
+        public static string update_Equipment_Activity(string id, string oEquipment_type, string oNumber_of_units, string oRent_rate, string oRent_rate_qunatity, string oCustomer_company, string oVendor_company, string oActivity_status, string oActivity_date, string Equipment_type, string Number_of_units, string Rent_rate, string Rent_rate_qunatity, string Customer_company, string Vendor_company, string Activity_status, string Activity_date, bool andPassword = true)
+        {
+            string response = "";
+            Equipment_Activity c = new Equipment_Activity();
             string data = "";
             try
-            { 
-                Equipment_hub_Equipment_Activity cust = c.get_Equipment_Activity(" where id = " + id  )[0]; 
-                cust.Equipment_type =  long.Parse( Equipment_type == null ? "1" : Equipment_type)  ;
-                data += ",Equipment_type : " + oEquipment_type + " -> " + Equipment_type;
-                 cust.Number_of_units =  Int16.Parse( Number_of_units == null ? "1" : Number_of_units)  ;
-                 data += ",Number_of_units : " + oNumber_of_units + " -> " + Number_of_units;
-                 cust.Rent_rate =  long.Parse( Rent_rate == null ? "1" : Rent_rate)  ;
-                 data += ",Rent_rate : " + oRent_rate + " -> " + Rent_rate;
-                 cust.Rent_rate_qunatity =  Int16.Parse( Rent_rate_qunatity == null ? "1" : Rent_rate_qunatity)  ;
-                 data += ",Rent_rate_qunatity : " + oRent_rate_qunatity + " -> " + Rent_rate_qunatity;
-                 cust.Customer_company =  long.Parse( Customer_company == null ? "1" : Customer_company)  ;
-                 data += ",Customer_company : " + oCustomer_company + " -> " + Customer_company;
-                 cust.Vendor_company =  long.Parse( Vendor_company == null ? "1" : Vendor_company)  ;
-                 data += ",Vendor_company : " + oVendor_company + " -> " + Vendor_company;
-                 cust.Activity_status =  long.Parse( Activity_status == null ? "1" : Activity_status)  ;
-                 data += ",Activity_status : " + oActivity_status + " -> " + Activity_status;
+            {
+                Equipment_hub_Equipment_Activity cust = c.get_Equipment_Activity(" where id = " + id)[0];
+                //cust.Equipment_type = long.Parse(Equipment_type == null ? "1" : Equipment_type);
+                //data += ",Equipment_type : " + oEquipment_type + " -> " + Equipment_type;
+                //cust.Number_of_units = Int16.Parse(Number_of_units == null ? "1" : Number_of_units);
+                //data += ",Number_of_units : " + oNumber_of_units + " -> " + Number_of_units;
+                //cust.Rent_rate = long.Parse(Rent_rate == null ? "1" : Rent_rate);
+                //data += ",Rent_rate : " + oRent_rate + " -> " + Rent_rate;
+                //cust.Rent_rate_qunatity = Int16.Parse(Rent_rate_qunatity == null ? "1" : Rent_rate_qunatity);
+                //data += ",Rent_rate_qunatity : " + oRent_rate_qunatity + " -> " + Rent_rate_qunatity;
+                //cust.Customer_company = long.Parse(Customer_company == null ? "1" : Customer_company);
+                //data += ",Customer_company : " + oCustomer_company + " -> " + Customer_company;
+                //cust.Vendor_company = long.Parse(Vendor_company == null ? "1" : Vendor_company);
+                //data += ",Vendor_company : " + oVendor_company + " -> " + Vendor_company;
                 response = c.update_Equipment_Activity(cust);
                 if (response.Trim().Length > 0)
                 {
@@ -729,7 +730,7 @@ namespace Equipment_hub.BusinessLogic
                     response = "Error saving data";
                 }
                 else
-                { 
+                {
                     response = "update successful";
                     Audit.InsertAudit((int)eventzz.SUCCESSFUL_EQUIPMENT_ACTIVITY_UPDATE, data, getVal(), true);
                 }
@@ -741,6 +742,91 @@ namespace Equipment_hub.BusinessLogic
             }
             return response;
         }
+        public static string add_new_Equipment_Activity_Movement(string Activity_status, string Activity_date, string Equipment_activity, bool returnID = false)
+        {
+            string response = "";
+            Equipment_Activity_Movement c = new Equipment_Activity_Movement();
+            string data = "";
+            try
+            {
+
+                Equipment_hub_Equipment_Activity_Movement cust = new Equipment_hub_Equipment_Activity_Movement();
+                cust.Activity_status = long.Parse(Activity_status == null ? "1" : Activity_status);
+                data += ",Activity_status : " + Activity_status;
+                cust.Activity_date = System.DateTime.Now;
+                cust.Equipment_activity = long.Parse(Equipment_activity == null ? "1" : Equipment_activity);
+                data += ",Equipment_activity : " + Equipment_activity;
+                response = c.add_Equipment_Activity_Movement(cust, returnID);
+                if (returnID)
+                {
+                 //   Audit.InsertAudit((int)eventzz.SUCCESSFUL_EQUIPMENT_ACTIVITY_MOVEMENT_ADD, data, getVal(), true);
+                    return response;
+                }
+                if (response.Trim().Length > 0)
+                {
+                  //  Audit.InsertAudit((int)eventzz.FAILED_EQUIPMENT_ACTIVITY_MOVEMENT_ADD, response + " (" + data + ")", getVal(), true);
+                    response = "failed create attempt";
+                }
+                else
+                {
+                    response = "Creation successful";
+                 //   Audit.InsertAudit((int)eventzz.SUCCESSFUL_EQUIPMENT_ACTIVITY_MOVEMENT_ADD, data, getVal(), true);
+                }
+            }
+            catch (Exception d)
+            {
+                response = "Error adding Equipment_Activity_Movement";
+             //   Audit.InsertAudit((int)eventzz.ERROR_EQUIPMENT_ACTIVITY_MOVEMENT_ADD, d.Message + "  " + (d.InnerException != null ? d.InnerException.Message : "") + " (  " + data + " ) ", getVal(), true);
+            }
+            return response;
+        }
+        public static List<Equipment_hub_Equipment_Activity_Movement_data> get_Equipment_Activity_Movement(string sql)
+        {
+            List<Equipment_hub_Equipment_Activity_Movement_data> response = null;
+            try
+            {
+                Equipment_Activity_Movement c = new Equipment_Activity_Movement();
+                response = c.get_Equipment_Activity_Movement_linked(sql);
+            }
+            catch (Exception d)
+            {
+                //Audit.InsertAudit((int)eventzz.ERROR_EQUIPMENT_ACTIVITY_MOVEMENT_GET, d.Message + "  " + (d.InnerException != null ? d.InnerException.Message : ""), getVal(), true);
+            }
+            return response;
+        }
+        public static string update_Equipment_Activity_Movement(string id, string oActivity_status, string oActivity_date, string oEquipment_activity, string Activity_status, string Activity_date, string Equipment_activity, bool andPassword = true)
+        {
+            string response = "";
+            Equipment_Activity_Movement c = new Equipment_Activity_Movement();
+            string data = "";
+            try
+            {
+                Equipment_hub_Equipment_Activity_Movement cust = c.get_Equipment_Activity_Movement(" where id = " + id)[0];
+                cust.Activity_status = long.Parse(Activity_status == null ? "1" : Activity_status);
+                data += ",Activity_status : " + oActivity_status + " -> " + Activity_status;
+                cust.Equipment_activity = long.Parse(Equipment_activity == null ? "1" : Equipment_activity);
+                data += ",Equipment_activity : " + oEquipment_activity + " -> " + Equipment_activity;
+                response = c.update_Equipment_Activity_Movement(cust);
+                if (response.Trim().Length > 0)
+                {
+                  //  Audit.InsertAudit((int)eventzz.FAILED_EQUIPMENT_ACTIVITY_MOVEMENT_UPDATE, data, getVal(), true);
+                    response = "Error saving data";
+                }
+                else
+                {
+                    response = "update successful";
+                 //   Audit.InsertAudit((int)eventzz.SUCCESSFUL_EQUIPMENT_ACTIVITY_MOVEMENT_UPDATE, data, getVal(), true);
+                }
+            }
+            catch (Exception d)
+            {
+                response = "Error updating data";
+                //Audit.InsertAudit((int)eventzz.ERROR_EQUIPMENT_ACTIVITY_MOVEMENT_UPDATE, d.Message + "  " + (d.InnerException != null ? d.InnerException.Message : "") + " ( " + data + " ) ", getVal(), true);
+            }
+            return response;
+        }
+
+        
         public static string add_new_Equipment_Type(string Name_of_equipment, bool returnID = false )
         { 
             string response = ""; 

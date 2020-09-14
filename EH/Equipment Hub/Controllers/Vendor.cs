@@ -162,8 +162,8 @@ namespace Equipment_hub.Controllers
                             {
                                 strRightList += "sphinxcol" + right.Rightname + "sphinxcol";
                             }
-                            Session["strRightList"] = strRightList; 
-                            return RedirectToAction("Change_Password", "Vendor"); 
+                            Session["strRightList"] = strRightList;
+                            return RedirectToAction("view_Equipment_Activity", "Vendor"); 
                         }
                     }
                     else
@@ -1166,12 +1166,12 @@ namespace Equipment_hub.Controllers
                 return Content("Invalid Token"); 
             } 
             getStatus();
-            Session["response"] = centralCalls.get_Equipment_Activity("");
+            Session["response"] = centralCalls.get_Equipment_Activity(" where a.Vendor_Company = " + Session["Vendor_company"]);
             return  Content(JsonConvert.SerializeObject(  (List<Equipment_hub_Equipment_Activity_data>)Session["response"] ));
         }
 
         [AllowAnonymous]
-        public ActionResult edit_Equipment_Activity(string id,string Equipment_type,string Number_of_units,string Rent_rate,string Rent_rate_qunatity,string Customer_company,string Vendor_company,string Activity_status,string Activity_date  )
+        public ActionResult edit_Equipment_Activity(string id, string Equipment_type, string Number_of_units, string Rent_rate, string Rent_rate_qunatity, string Customer_company, string Vendor_company, string Activity_status, string Activity_date, string Rent_rate_data)
         {  
                 Audit.protocol();
             if(Session["userType"] == null){ 
@@ -1188,8 +1188,11 @@ namespace Equipment_hub.Controllers
             }
             ViewBag.Data0 =  centralCalls.get_Equipment_Type("");
             ViewBag.Data1 =  centralCalls.get_Rent_Rate("");
-            ViewBag.Data2 =  centralCalls.get_Customer_Company("");
+            ViewBag.Data2 = centralCalls.get_Vendor_Company("");
             ViewBag.Data3 =  centralCalls.get_Activity_Status("");
+
+             
+
             getStatus();
             ViewBag.id=id;
              ViewBag.Equipment_type = Equipment_type;
@@ -1200,6 +1203,7 @@ namespace Equipment_hub.Controllers
              ViewBag.Vendor_company = Vendor_company;
              ViewBag.Activity_status = Activity_status;
              ViewBag.Activity_date = Activity_date;
+             ViewBag.Rent_rate_data = Rent_rate_data;
             
             return View();
         } 

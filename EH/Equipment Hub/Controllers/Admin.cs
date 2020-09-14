@@ -158,8 +158,8 @@ namespace Equipment_hub.Controllers
                             {
                                 strRightList += "sphinxcol" + right.Rightname + "sphinxcol";
                             }
-                            Session["strRightList"] = strRightList; 
-                            return RedirectToAction("Change_Password", "Admin"); 
+                            Session["strRightList"] = strRightList;
+                            return RedirectToAction("view_Equipment_Activity", "Admin"); 
                         }
                     }
                     else
@@ -1002,11 +1002,10 @@ namespace Equipment_hub.Controllers
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Admin");
             }
-            ViewBag.Data0 =  centralCalls.get_Equipment_Type("");
-            ViewBag.Data1 =  centralCalls.get_Rent_Rate("");
-            ViewBag.Data2 =  centralCalls.get_Customer_Company("");
-            ViewBag.Data3 =  centralCalls.get_Vendor_Company("");
-            ViewBag.Data4 =  centralCalls.get_Activity_Status("");
+            ViewBag.Data0 = centralCalls.get_Equipment_Type("");
+            ViewBag.Data1 = centralCalls.get_Rent_Rate("");
+            ViewBag.Data2 = centralCalls.get_Vendor_Company("");
+            ViewBag.Data3 = centralCalls.get_Activity_Status("");
             getStatus();
             ViewBag.id=id;
              ViewBag.Equipment_type = Equipment_type;

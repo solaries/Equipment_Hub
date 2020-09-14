@@ -17,7 +17,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Edit Equipment Activity</h4>
+        <h4 class="card-title">Equipment Activity</h4>
         <div class="form-validation">
             <form id ="widgetu1290"class="form-valide" action="#"  method="post" enctype="multipart/form-data"> 
                 @Html.AntiForgeryToken()  
@@ -26,7 +26,7 @@
                    <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Equipment Type</label>
                             <div class="col-lg-6">
-                   <select class="form-control" id="Equipment_type" name="Equipment_type">
+                   <select disabled class="form-control" id="Equipment_type" name="Equipment_type">
                    <option value="">Select Equipment type</option>
                    @foreach (Equipment_hub.Data.Models.Equipment_hub_Equipment_Type item in data0)
                    {
@@ -45,15 +45,27 @@
                    <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Number Of Units</label>
                             <div class="col-lg-6">
-                                    <input id="Number_of_units" name="Number_of_units" required   onkeyup="doCleanN(this)"    type="text" class="form-control" maxlength="4"
-                                         value="@ViewBag.Number_of_units"        placeholder="Number Of Units" />
+                                <input disabled id="Number_of_units" name="Number_of_units" required onkeyup="doCleanN(this)" type="text" class="form-control" maxlength="4"
+                                       value="@ViewBag.Number_of_units" placeholder="Number Of Units" />
                                     <input id="oNumber_of_units" name="oNumber_of_units" type="hidden"  value="@ViewBag.Number_Of_Units"     />
 
                     </div>
 
                 </div>
 
-                   <div class="form-group row">
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">Requested Duration</label>
+                    <div class="col-lg-6">
+                        <input disabled id="rd" name="rd" required onkeyup="doCleanN(this)" type="text" class="form-control" maxlength="4"
+                               value="@ViewBag.Rent_rate_data" placeholder="" />
+                        
+                    </div>
+
+                </div>
+
+                <input id="Rent_rate" name="Rent_rate" type="hidden" value="@ViewBag.Rent_Rate" />
+
+                   @*<div class="form-group row">
                             <label class="col-lg-4 col-form-label">Rent Rare</label>
                             <div class="col-lg-6">
                    <select class="form-control" id="Rent_rate" name="Rent_rate">
@@ -70,13 +82,13 @@
                </select>
                     </div>
 
-                </div>
+                </div>*@
 
                    <div class="form-group row">
-                            <label class="col-lg-4 col-form-label">Rent Rate Qunatity</label>
+                            <label class="col-lg-4 col-form-label">Tentative Bill</label>
                             <div class="col-lg-6">
-                                    <input id="Rent_rate_qunatity" name="Rent_rate_qunatity" required   onkeyup="doCleanN(this)"    type="text" class="form-control" maxlength="4"
-                                         value="@ViewBag.Rent_rate_qunatity"        placeholder="Rent Rate Qunatity" />
+                                <input disabled id="Rent_rate_qunatity" name="Rent_rate_qunatity" required onkeyup="doCleanN(this)" type="text" class="form-control" maxlength="4"
+                                       value="@ViewBag.Rent_rate_qunatity" placeholder="Rent Rate Qunatity" />
                                     <input id="oRent_rate_qunatity" name="oRent_rate_qunatity" type="hidden"  value="@ViewBag.Rent_Rate_Qunatity"     />
 
                     </div>
@@ -87,18 +99,18 @@
                    <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Vendor Company</label>
                             <div class="col-lg-6">
-                   <select class="form-control" id="Vendor_company" name="Vendor_company">
-                   <option value="">Select Vendor company</option>
-                   @foreach (Equipment_hub.Data.Models.Equipment_hub_Vendor_Company item in data2)
-                   {
-                       sel = "";
-                       if (ViewBag.Vendor_Company == item.Id.ToString())
-                       {
-                            sel = " selected ";
-                       }
-                       <option  @sel  value="@item.Id"> @item.Company_name</option>
-                   }
-               </select>
+                                <select disabled class="form-control" id="Vendor_company" name="Vendor_company">
+                                    <option value="">Select Vendor company</option>
+                                    @foreach (Equipment_hub.Data.Models.Equipment_hub_Vendor_Company item in data2)
+                                    {
+                                        sel = "";
+                                        if (ViewBag.Vendor_Company == item.Id.ToString())
+                                        {
+                                            sel = " selected ";
+                                        }
+                                        <option @sel value="@item.Id"> @item.Company_name</option>
+                                    }
+                                </select>
                     </div>
 
                 </div>
@@ -106,23 +118,25 @@
                    <div class="form-group row">
                             <label class="col-lg-4 col-form-label">Activity Status</label>
                             <div class="col-lg-6">
-                   <select class="form-control" id="Activity_status" name="Activity_status">
-                   <option value="">Select Activity status</option>
-                   @foreach (Equipment_hub.Data.Models.Equipment_hub_Activity_Status item in data3)
-                   {
-                       sel = "";
-                       if (ViewBag.Activity_Status == item.Id.ToString())
-                       {
-                            sel = " selected ";
-                       }
-                       <option  @sel  value="@item.Id"> @item.Activity_status_name</option>
-                   }
-               </select>
+                                <select disabled class="form-control" id="Activity_status" name="Activity_status">
+                                    <option value="">Select Activity status</option>
+                                    @foreach (Equipment_hub.Data.Models.Equipment_hub_Activity_Status item in data3)
+                                    {
+                                        sel = "";
+                                        if (ViewBag.Activity_Status == item.Id.ToString())
+                                        {
+                                            sel = " selected ";
+                                        }
+                                        <option @sel value="@item.Id"> @item.Activity_status_name</option>
+                                    }
+                                </select>
                     </div>
 
                 </div>
 
-                   <div class="form-group row">
+                <input id="Activity_date" name="Activity_date" type="hidden" value="." />
+
+                   @*<div class="form-group row">
                             <label class="col-lg-4 col-form-label">Activity date</label>
                             <div class="col-lg-6">
                    <input id="Activity_date" name="Activity_date" required   type="datetime" class="form-control" maxlength="1"
@@ -131,13 +145,31 @@
 
                     </div>
 
-                </div>
+                </div>*@
 
-                <div class="form-group row">
-                    <div class="col-lg-8 ml-auto">
-                        <button type="button" class="btn btn-primary" onclick="checkAndGo()">Submit</button>
+                @if (ViewBag.Activity_Status == "2")
+                {
+
+                    <div class="form-group row">
+                        <div class="col-lg-8 ml-auto">
+                            <button type="button" class="btn btn-primary" onclick="checkAndGo()">Pay</button>
+                        </div>
                     </div>
-                </div>
+                }
+
+                @if (ViewBag.Activity_Status == "5" ||
+                    ViewBag.Activity_Status == "6"
+                    )
+                {
+                    <div class="form-group row">
+                        <div class="col-lg-8 ml-auto">
+                            <button type="button" class="btn btn-primary" onclick="checkAndGo()">Submit</button>
+                        </div>
+                    </div>
+                }
+
+
+
             </form>
         </div>
     </div>
