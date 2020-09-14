@@ -406,7 +406,7 @@ namespace Equipment_hub.Controllers
                 return Content("Invalid Token"); 
             } 
             getStatus();
-            Session["response"] = centralCalls.get_Equipment_Activity("");
+            Session["response"] = centralCalls.get_Equipment_Activity(" where a.Customer_Company = " + Session["Customer_company"]);
             return Content(JsonConvert.SerializeObject( ((List<Equipment_hub_Equipment_Activity_data>)Session["response"]) ));
         }
 

@@ -73,7 +73,7 @@
                 <div class="form-group row">
                     @*<label class="col-lg-4 col-form-label">Rent Rare</label>*@
                     <div class="col-lg-6">
-                        <select disabled style="visibility: hidden;" class="form-control" id="Rent_rate" name="Rent_rate">
+                        <select disabled style="visibility: hidden;" class="form-control" id="Rent_rate1" name="Rent_rate1">
                             <option value="">Select Rent rate</option>
                             @foreach (Equipment_hub.Models.Equipment_hub_Rent_Rate_data item in data1)
                             {
@@ -92,7 +92,7 @@
                 <div class="form-group row">
                 <label class="col-lg-4 col-form-label">Equipment Type</label>
                 <div class="col-lg-6">
-                    <select disabled  class="form-control" id="Equipment_type" name="Equipment_type">
+                    <select disabled  class="form-control" id="Equipment_type1" name="Equipment_type1">
                         <option value="">Select Equipment type</option>
                         @foreach (Equipment_hub.Data.Models.Equipment_hub_Equipment_Type item in data0)
                         {
@@ -139,17 +139,18 @@
               </div>
                 
 
-                     <input id="Customer_company" name="Customer_company"  value="@Session["Customer_company"]"  type="hidden"  />
+                <input id="Customer_company" name="Customer_company"  value="@Session["Customer_company"]"  type="hidden"  />
                 <input id="dq" name="dq" value="" type="hidden" />
                 <input id="dtype" name="dtype" value="" type="hidden" />
 
                 <div class="form-group row">
                 <label class="col-lg-4 col-form-label">Vendor Company</label>
                 <div class="col-lg-6">
-                    <select disabled class="form-control" id="Vendor_company" name="Vendor_company">
+                    <select disabled class="form-control" id="Vendor_company1" name="Vendor_company1">
                         <option value="">Select Vendor company</option>
                         @foreach (Equipment_hub.Data.Models.Equipment_hub_Vendor_Company item in data2)
                         {
+
                             <option value="@item.Id"> @item.Company_name</option>
                         }
                     </select>                     </div>
@@ -184,6 +185,9 @@
                      placeholder="activity date" />
                      </div>
               </div>*@
+                <input id="Equipment_type" name="Equipment_type" value="" type="hidden" />
+                <input id="Rent_rate" name="Rent_rate" value="" type="hidden" />
+                <input id="Vendor_company" name="Vendor_company" value="" type="hidden" />
 
                 <div class="form-group row">
                     <div class="col-lg-8 ml-auto">
@@ -199,14 +203,9 @@
     //Rent_rate_qunatity rd  Number_of_units tb dtype
     function doCal() {
         doCleanN(document.getElementById("Rent_rate_qunatity"));
-        doCleanN(document.getElementById("Number_of_units"));
-
+        doCleanN(document.getElementById("Number_of_units")); 
         document.getElementById("rd").value  = "" ;
-        document.getElementById("tb").value = "";
- 
-      //  alert(1);
-
-
+        document.getElementById("tb").value = ""; 
         if (document.getElementById("Rent_rate_qunatity").value.trim().length == 0) {
             return;
         }
@@ -216,18 +215,22 @@
         document.getElementById("rd").value = Number(document.getElementById("dq").value.split(",").join("")) * Number(document.getElementById("Rent_rate_qunatity").value.split(",").join(""));
         doCleanN(document.getElementById("rd"));
         document.getElementById("rd").value += " " + document.getElementById("dtype").value;
-
         if (document.getElementById("Number_of_units").value.trim().length == 0) {
             return;
         }
         document.getElementById("tb").value = Number(document.getElementById("Number_of_units").value.split(",").join("")) * Number(document.getElementById("ppupd").value.split(",").join("")) * Number(document.getElementById("Rent_rate_qunatity").value.split(",").join(""));
-        doCleanN(document.getElementById("tb"));
-         
+        doCleanN(document.getElementById("tb")); 
     }
     function selectRate(Id, Equipement_type, Vendor,durationQ, durationT,Price) {
         document.getElementById("Rent_rate").value = Id;
         document.getElementById("Equipment_type").value = Equipement_type;
         document.getElementById("Vendor_company").value = Vendor;
+
+        document.getElementById("Rent_rate1").value = Id;
+        document.getElementById("Equipment_type1").value = Equipement_type;
+        document.getElementById("Vendor_company1").value = Vendor;
+
+
         document.getElementById("dt").value = durationQ + " " + durationT;
         document.getElementById("dtype").value =   durationT;
         document.getElementById("dq").value = durationQ  ;
@@ -353,6 +356,8 @@
              msg("Please enter activity date");
              return;
          }
+         //alert(document.getElementById("Vendor_company").value);
+         //return;
 
         document.getElementById("widgetu1290").submit();
     }
