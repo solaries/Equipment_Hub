@@ -1,0 +1,214 @@
+
+@{
+    List<Equipment_hub.Data.Models.Equipment_hub_Equipment_Type> data0  =  ( List<Equipment_hub.Data.Models.Equipment_hub_Equipment_Type>)@ViewBag.data0;
+} 
+ @{
+ List<Equipment_hub.Data.Models.Equipment_hub_Duration_Type> data1  =  ( List<Equipment_hub.Data.Models.Equipment_hub_Duration_Type>)@ViewBag.data1;
+} 
+ @{
+ List<Equipment_hub.Models.Equipment_hub_authenticate_Vendor_data> data2  =  ( List<Equipment_hub.Models.Equipment_hub_authenticate_Vendor_data>)@ViewBag.data2;
+} 
+ @{
+ 
+}  
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">New Equipment Rent Rates</h4>
+        <div class="form-validation">
+            <form id ="widgetu1290"class="form-valide" action="#"  method="post" enctype="multipart/form-data"> 
+                @Html.AntiForgeryToken()  
+                <div class="form-group row">
+                <label class="col-lg-4 col-form-label">Equipement Type</label>
+                <div class="col-lg-6">
+                            <select class="form-control" id="Equipement_type" name="Equipement_type">
+                            <option value="">Select Equipement type</option>
+                            @foreach (Equipment_hub.Data.Models.Equipment_hub_Equipment_Type item in data0)
+                            {
+                               <option value="@item.Id"> @item.Name_of_equipment</option>
+                            }
+                            </select>                     </div>
+              </div>
+
+                <div class="form-group row">
+                <label class="col-lg-4 col-form-label">Duration Type</label>
+                <div class="col-lg-6">
+                            <select class="form-control" id="Duration_type" name="Duration_type">
+                            <option value="">Select Duration type</option>
+                            @foreach (Equipment_hub.Data.Models.Equipment_hub_Duration_Type item in data1)
+                            {
+                               <option value="@item.Id"> @item.Duration_name</option>
+                            }
+                            </select>                     </div>
+              </div>
+
+                <div class="form-group row">
+                <label class="col-lg-4 col-form-label">Qunatity</label>
+                <div class="col-lg-6">
+                       <input id="Qunatity" name="Qunatity" required   onkeyup="doCleanN(this)"    type="text" class="form-control" maxlength="4"
+                       placeholder="Qunatity" />
+                     </div>
+              </div>
+
+                <div class="form-group row">
+                <label class="col-lg-4 col-form-label">Price</label>
+                <div class="col-lg-6">
+                      <input id="Price" name="Price" required  onkeyup="doCleanNumber(this)"   type="text" class="form-control" maxlength="14"
+                      placeholder="Price" />
+                     </div>
+              </div>
+
+                <div class="form-group row">
+                <label class="col-lg-4 col-form-label">Entry Date</label>
+                <div class="col-lg-6">
+                     <input id="Entry_date" name="Entry_date" required   type="datetime" class="form-control" maxlength="1"
+                     placeholder="Entry Date" />
+                     </div>
+              </div>
+
+                <div class="form-group row">
+                <label class="col-lg-4 col-form-label">Vendor</label>
+                <div class="col-lg-6">
+                            <select class="form-control" id="Vendor" name="Vendor">
+                            <option value="">Select Vendor</option>
+                            @foreach (Equipment_hub.Models.Equipment_hub_authenticate_Vendor_data item in data2)
+                            {
+                               <option value="@item.Id"> @item.First_name</option>
+                            }
+                            </select>                     </div>
+              </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-8 ml-auto">
+                        <button type="button" class="btn btn-primary" onclick="checkAndGo()">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script> 
+    var selectedRights = ""; 
+    function setRight(id) { 
+        selectedRights = document.getElementById("selectedRights").value;  
+        if (selectedRights.indexOf("sphinxcol" + id + "sphinxcol") > -1) { 
+            selectedRights = selectedRights.split("sphinxcol" + id + "sphinxcol").join(""); 
+        } 
+        else { 
+            selectedRights += "sphinxcol" + id + "sphinxcol"; 
+        } 
+        document.getElementById("selectedRights").value = selectedRights;  
+    } 
+    function doClean(text) { 
+        text.value = text.value.split("'").join("");
+        text.value = text.value.split(">").join("");
+        text.value = text.value.split("<").join("");
+        text.value = text.value.split("~").join("");
+        text.value = text.value.split("&").join("");
+        text.value = text.value.split("\\").join("");
+        text.value = text.value.split("_").join("");
+        text.value = text.value.split("%").join("");
+        text.value = text.value.split("\"").join("");
+    } 
+    function doCleanN(text) {
+        var list = "0123456789";
+        var data = text.value;
+        for (i = 0; i < data.length; i++) {
+            if (list.indexOf(data.substring(i, i + 1)) == -1) {
+                data = data.split(data.substring(i, i + 1)).join(""); 
+            }
+        }
+        text.value = data;
+    } 
+        function msg(txt) {
+            sweetAlert("...", txt, "info");
+        }
+        function doCleanNumber(textBox) {
+            var strVal;
+            var strVal1;
+            var strVal2;
+            var dot;
+            var i;
+            var strComma;
+            strVal2 = "";
+            strComma = "";
+            strVal1 = "";
+            if (isNaN(textBox.value.split(",").join(""))) {
+                textBox.value = parseFloat(textBox.value.split(",").join(""));
+            }
+            strVal = textBox.value;
+            dot = 0;
+            for (i = 0; i < strVal.length; i++) {
+                if (strVal.substring(i, i + 1).indexOf('.') > -1) {
+                    dot = dot + 1;
+                }
+                if ((strVal.substring(i, i + 1).indexOf('0') > -1) || (strVal.substring(i, i + 1).indexOf("1") > -1) || (strVal.substring(i, i + 1).indexOf("2") > -1) || (strVal.substring(i, i + 1).indexOf("3") > -1) || (strVal.substring(i, i + 1).indexOf("4") > -1) || (strVal.substring(i, i + 1).indexOf("5") > -1) || (strVal.substring(i, i + 1).indexOf("6") > -1) || (strVal.substring(i, i + 1).indexOf("7") > -1) || (strVal.substring(i, i + 1).indexOf("8") > -1) || (strVal.substring(i, i + 1).indexOf("9") > -1) || ((strVal.substring(i, i + 1).indexOf('.') > -1) && dot <= 1)) {
+                    strVal1 = strVal1 + strVal.substring(i, i + 1)
+                }
+            }
+            if ((strVal1.indexOf('.') == 0)) {
+                strVal1 = "0" + strVal1;
+            }
+            if (strVal1.indexOf('.') > 0) {
+                if (((strVal1.length) - (strVal1.indexOf('.') + 1)) > 2) {
+                    strVal1 = strVal1.substring(0, strVal1.indexOf('.') + 3);
+                }
+            } 
+            strVal = "";
+            if (strVal1.indexOf('.') != -1) {
+                strVal = strVal1.substring(strVal1.indexOf('.'), strVal1.indexOf('.') + 3);
+                strVal1 = strVal1.substring(0, strVal1.indexOf('.'));
+            } 
+            while (strVal1.length > 0) {
+                if (strVal1.length > 3) {
+                    strVal2 = strVal1.substring(strVal1.length - 3, strVal1.length) + strComma + strVal2;
+                    strVal1 = strVal1.substring(0, strVal1.length - 3);
+                    strComma = ",";
+                }
+                else {
+                    strVal2 = strVal1 + strComma + strVal2;
+                    strVal1 = "";
+                }
+            } 
+            if (strVal2.indexOf('.') > 0) {
+                strVal2 = strVal2.substring(0, strVal2.indexOf('.')); 
+            } 
+            textBox.value = strVal2 + strVal;
+        } 
+    function checkAndGo() { 
+                doCleanNumber(document.getElementById("Price"));
+        doCleanN(document.getElementById("Qunatity"));
+         if (document.getElementById("Equipement_type").value.trim().length == 0) {
+             msg("Please select Equipement Type");
+             return;
+         } 
+         if (document.getElementById("Duration_type").value.trim().length == 0) {
+             msg("Please select Duration Type");
+             return;
+         } 
+         if (document.getElementById("Qunatity").value.trim().length == 0) {
+             msg("Please enter Qunatity");
+             return;
+         } 
+         if (document.getElementById("Price").value.trim().length == 0) {
+             msg("Please enter Price");
+             return;
+         } 
+         if (document.getElementById("Entry_date").value.trim().length == 0) {
+             msg("Please enter Entry Date");
+             return;
+         } 
+         if (document.getElementById("Vendor").value.trim().length == 0) {
+             msg("Please select Vendor");
+             return;
+         } 
+
+        document.getElementById("widgetu1290").submit(); 
+    } 
+</script> 
+<script> 
+    var statusMessage = "@ViewBag.status" || false; 
+    if (statusMessage != false && statusMessage.length > 0) {
+        msg(statusMessage); 
+    }
+</script> 

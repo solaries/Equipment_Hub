@@ -1,0 +1,22 @@
+@{ 
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    var action = HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString();
+       if (action.ToLower() == "login" || action.ToLower() == "register")
+       { 
+       }  
+       else
+       { 
+            if (controller.ToLower() == "admin")
+           { 
+               Layout = "~/Views/Shared/_Admin.cshtml";
+           }
+            if (controller.ToLower() == "customer")
+           { 
+               Layout = "~/Views/Shared/_Customer.cshtml";
+           }
+            if (controller.ToLower() == "vendor")
+           { 
+               Layout = "~/Views/Shared/_Vendor.cshtml";
+           }
+       }  
+}

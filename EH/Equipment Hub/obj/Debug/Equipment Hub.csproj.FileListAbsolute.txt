@@ -1,0 +1,43 @@
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Equipment Hub.dll.config
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Equipment Hub.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Equipment Hub.pdb
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.Cors.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.Security.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.Security.OAuth.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Web.Infrastructure.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\mysql.data.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Newtonsoft.Json.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\NPoco.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Owin.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Net.Http.Formatting.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Cors.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Helpers.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Http.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Http.WebHost.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Mvc.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Optimization.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Razor.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.WebPages.Deployment.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.WebPages.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.WebPages.Razor.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\WebGrease.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.Cors.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.Security.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Microsoft.Owin.Security.OAuth.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\Newtonsoft.Json.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Net.Http.Formatting.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Http.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Http.WebHost.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Helpers.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Mvc.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Optimization.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.Razor.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.WebPages.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.WebPages.Deployment.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.WebPages.Razor.xml
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\obj\Debug\Equipment Hub.dll
+C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\obj\Debug\Equipment Hub.pdb
