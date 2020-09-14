@@ -343,7 +343,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Customer");
             }
-                
+            Activity_status = "1";
                 string response =null;
                 if (!validateAccessToken(Session["token"].ToString()))
                 {
