@@ -48,7 +48,7 @@ namespace Equipment_hub.Models
          public List<Equipment_hub_authenticate_Customer_data> get_authenticate_Customer_linked(string sql)
          {
              var context = Equipment_hub.Data.Models.Equipment_hub.GetInstance();
-             var actual = context.Fetch<Equipment_hub_authenticate_Customer_data>( "select a.id , a.first_name , a.last_name , a.email , a.password , a.password2 , a.activated , a.Company_Name , a1.Company_Name  Company_Name_data    from Equipment_hub_authenticate_Customer a  inner join  Equipment_hub_Customer_Company a1 on a.Company_Name = a1.id "  + sql);
+             var actual = context.Fetch<Equipment_hub_authenticate_Customer_data>( "select a.id , a.first_name , a.last_name , a.email , a.password , a.password2 , a.activated , a.Company_Name , a1.Company_Name  Company_Name_data    from equipment_hub_authenticate_customer a  inner join  equipment_hub_customer_company a1 on a.Company_Name = a1.id "  + sql);
              return actual;
          }  
          public List<Equipment_hub_authenticate_Customer> get_authenticate_Customer(string sql)

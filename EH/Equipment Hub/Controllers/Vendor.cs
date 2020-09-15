@@ -132,7 +132,7 @@ namespace Equipment_hub.Controllers
                             Session["Vendor_company"] =  response[0].Company_name;
                             Session["token"] = token;
                             Session["Password"] = Password;
-                            List<Equipment_hub_right_Vendor> rightList = centralCalls.get_right_Vendor(" where id in (select `right` from Equipment_hub_role_right_Vendor where role =" + response[0].Role.ToString() + " )   order by rightname");
+                            List<Equipment_hub_right_Vendor> rightList = centralCalls.get_right_Vendor(" where id in (select `right` from equipment_hub_role_right_vendor where role =" + response[0].Role.ToString() + " )   order by rightname");
                             string strRightList = "";
                             foreach (Equipment_hub_right_Vendor right in rightList)
                             {
@@ -156,7 +156,7 @@ namespace Equipment_hub.Controllers
                             Session["token"] = token;
                             Session["Password"] = Password;
                             Session["role"] = response[0].Role;
-                            List<Equipment_hub_right_Vendor> rightList = centralCalls.get_right_Vendor(" where id in (select `right` from Equipment_hub_role_right_Vendor where role =" + response[0].Role.ToString() + " )   order by rightname");
+                            List<Equipment_hub_right_Vendor> rightList = centralCalls.get_right_Vendor(" where id in (select `right` from equipment_hub_role_right_vendor where role =" + response[0].Role.ToString() + " )   order by rightname");
                             string strRightList = "";
                             foreach (Equipment_hub_right_Vendor right in rightList)
                             {
@@ -350,7 +350,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Roles' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Roles' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -377,7 +377,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Roles' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Roles' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -404,7 +404,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Roles' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Roles' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = "You do not have access to this functionality";
@@ -435,7 +435,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Roles' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Roles' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -460,7 +460,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Roles' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Roles' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = new List<Equipment_hub_role_Vendor>();
@@ -491,7 +491,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Roles' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Roles' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -528,7 +528,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Roles' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Roles' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -573,7 +573,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Roles' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Roles' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = "You do not have access to this functionality";
@@ -607,7 +607,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Payments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Payments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -630,7 +630,7 @@ namespace Equipment_hub.Controllers
         {
                 Audit.protocol();
                 Session["status"] = "";
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Payments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Payments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                Session["response"] = new List<Equipment_hub_Vendor_Payments>(); 
                return Content(Session["status"].ToString() );
@@ -660,7 +660,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Equipments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Equipments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -685,7 +685,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Equipments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Equipments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -710,7 +710,7 @@ namespace Equipment_hub.Controllers
         { 
                 Audit.protocol();
                 Session["status"] = "";
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Equipments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Equipments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                Session["response"]  = "You do not have access to this functionality";
                return Content(Session["status"].ToString() );
@@ -739,7 +739,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Equipments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Equipments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -762,7 +762,7 @@ namespace Equipment_hub.Controllers
         {
                 Audit.protocol();
                 Session["status"] = "";
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Equipments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Equipments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                Session["response"] = new List<Equipment_hub_Equipment>(); 
                return Content(Session["status"].ToString() );
@@ -794,7 +794,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Equipment Rent Rates' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Equipment Rent Rates' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -822,7 +822,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Equipment Rent Rates' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Equipment Rent Rates' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -849,7 +849,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Equipment Rent Rates' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Equipment Rent Rates' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = "You do not have access to this functionality";
@@ -880,7 +880,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Equipment Rent Rates' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Equipment Rent Rates' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -905,7 +905,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Equipment Rent Rates' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Equipment Rent Rates' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = new List<Equipment_hub_Rent_Rate>();
@@ -935,7 +935,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Equipment Rent Rates' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Equipment Rent Rates' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -971,7 +971,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Equipment Rent Rates' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Equipment Rent Rates' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -1008,7 +1008,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Equipment Rent Rates' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Equipment Rent Rates' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = "You do not have access to this functionality";
@@ -1038,7 +1038,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Equipments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Equipments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -1068,7 +1068,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Equipments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Equipments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -1098,7 +1098,7 @@ namespace Equipment_hub.Controllers
         { 
                 Audit.protocol();
                 Session["status"] = "";
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Equipments' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Equipments' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                Session["response"]  = "You do not have access to this functionality";
                return Content(Session["status"].ToString() );
@@ -1131,7 +1131,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Equipment Activity' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Equipment Activity' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -1154,7 +1154,7 @@ namespace Equipment_hub.Controllers
         {
                 Audit.protocol();
                 Session["status"] = "";
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Equipment Activity' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Equipment Activity' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                Session["response"] = new List<Equipment_hub_Equipment_Activity>(); 
                return Content(Session["status"].ToString() );
@@ -1182,7 +1182,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Equipment Activity' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Equipment Activity' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -1223,7 +1223,7 @@ namespace Equipment_hub.Controllers
             {
                return RedirectToAction("Change_Password", "Vendor");
             }
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Equipment Activity' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Equipment Activity' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                return RedirectToAction("Login", "Vendor");
             }
@@ -1262,7 +1262,7 @@ namespace Equipment_hub.Controllers
         { 
                 Audit.protocol();
                 Session["status"] = "";
-            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Equipment Activity' )   ").Count ==0){ 
+            if(centralCalls.get_role_right_Vendor("  where role =  "  + Session["role"]   + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Equipment Activity' )   ").Count ==0){ 
                Session["status"] = "You do not have access to this functionality";
                Session["response"]  = "You do not have access to this functionality";
                return Content(Session["status"].ToString() );
@@ -1294,7 +1294,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Users' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Users' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -1320,7 +1320,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Users' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Users' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -1355,7 +1355,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'new Users' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'new Users' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = "You do not have access to this functionality";
@@ -1386,7 +1386,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Users' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Users' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -1411,7 +1411,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'view Users' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'view Users' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = new List<Equipment_hub_authenticate_Vendor>();
@@ -1441,7 +1441,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Users' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Users' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -1477,7 +1477,7 @@ namespace Equipment_hub.Controllers
             {
                 return RedirectToAction("Change_Password", "Vendor");
             }
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Users' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Users' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 return RedirectToAction("Login", "Vendor");
@@ -1511,7 +1511,7 @@ namespace Equipment_hub.Controllers
         {
             Audit.protocol();
             Session["status"] = "";
-            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from Equipment_hub_right_Vendor where  replace(rightName,'_',' ') = 'edit Users' )   ").Count == 0)
+            if (centralCalls.get_role_right_Vendor("  where role =  " + Session["role"] + " and  `right` = (select id from equipment_hub_right_vendor where  replace(rightName,'_',' ') = 'edit Users' )   ").Count == 0)
             {
                 Session["status"] = "You do not have access to this functionality";
                 Session["response"] = "You do not have access to this functionality";

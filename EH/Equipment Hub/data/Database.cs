@@ -135,7 +135,7 @@ namespace Equipment_hub.Data.Models
             }
         }
     }
-    [TableName("Equipment_hub_event")]
+    [TableName("equipment_hub_event")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class @Event : Equipment_hub.Record<@Event>
@@ -162,7 +162,7 @@ namespace Equipment_hub.Data.Models
             if (columns != null)
                 sql.Select(columns);
 
-            sql.From("Equipment_hub_event (NOLOCK)");
+            sql.From("equipment_hub_event (NOLOCK)");
 
 
             if (Id != null)
@@ -173,7 +173,7 @@ namespace Equipment_hub.Data.Models
         }
 
     }
-    [TableName("Equipment_hub_eventLog")]
+    [TableName("equipment_hub_eventLog")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class EventLog : Equipment_hub.Record<EventLog>
@@ -228,7 +228,7 @@ namespace Equipment_hub.Data.Models
             if (columns != null)
                 sql.Select(columns);
 
-            sql.From("Equipment_hub_eventLog (NOLOCK)");
+            sql.From("equipment_hub_eventLog (NOLOCK)");
 
 
             if (Id != null)
@@ -239,7 +239,7 @@ namespace Equipment_hub.Data.Models
         }
 
     }
-    [TableName("Equipment_hub_Activity_Status")]
+    [TableName("equipment_hub_activity_status")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Activity_Status : Equipment_hub.Record<Equipment_hub_Activity_Status>
@@ -274,7 +274,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_authenticate_Admin")]
+    [TableName("equipment_hub_authenticate_admin")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_authenticate_Admin : Equipment_hub.Record<Equipment_hub_authenticate_Admin>
@@ -349,7 +349,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_authenticate_Customer")]
+    [TableName("equipment_hub_authenticate_customer")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_authenticate_Customer : Equipment_hub.Record<Equipment_hub_authenticate_Customer>
@@ -432,7 +432,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_authenticate_Vendor")]
+    [TableName("equipment_hub_authenticate_vendor")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_authenticate_Vendor : Equipment_hub.Record<Equipment_hub_authenticate_Vendor>
@@ -523,7 +523,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Customer_Company")]
+    [TableName("equipment_hub_customer_company")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Customer_Company : Equipment_hub.Record<Equipment_hub_Customer_Company>
@@ -558,7 +558,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Duration_Type")]
+    [TableName("equipment_hub_duration_type")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Duration_Type : Equipment_hub.Record<Equipment_hub_Duration_Type>
@@ -593,7 +593,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Equipment")]
+    [TableName("equipment_hub_equipment")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Equipment : Equipment_hub.Record<Equipment_hub_Equipment>
@@ -644,7 +644,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Equipment_Activity")]
+    [TableName("equipment_hub_equipment_activity")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Equipment_Activity : Equipment_hub.Record<Equipment_hub_Equipment_Activity>
@@ -719,7 +719,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Equipment_Activity_Movement")]
+    [TableName("equipment_hub_equipment_activity_movement")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Equipment_Activity_Movement : Equipment_hub.Record<Equipment_hub_Equipment_Activity_Movement>
@@ -770,7 +770,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Equipment_Type")]
+    [TableName("equipment_hub_equipment_type")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Equipment_Type : Equipment_hub.Record<Equipment_hub_Equipment_Type>
@@ -805,7 +805,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Rent_Rate")]
+    [TableName("equipment_hub_rent_rate")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Rent_Rate : Equipment_hub.Record<Equipment_hub_Rent_Rate>
@@ -880,7 +880,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_right_Admin")]
+    [TableName("equipment_hub_right_admin")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_right_Admin : Equipment_hub.Record<Equipment_hub_right_Admin>
@@ -915,7 +915,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_right_Vendor")]
+    [TableName("equipment_hub_right_vendor")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_right_Vendor : Equipment_hub.Record<Equipment_hub_right_Vendor>
@@ -950,7 +950,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_role_Admin")]
+    [TableName("equipment_hub_role_admin")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_role_Admin : Equipment_hub.Record<Equipment_hub_role_Admin>
@@ -985,7 +985,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_role_right_Admin")]
+    [TableName("equipment_hub_role_right_admin")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_role_right_Admin : Equipment_hub.Record<Equipment_hub_role_right_Admin>
@@ -1028,7 +1028,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_role_right_Vendor")]
+    [TableName("equipment_hub_role_right_vendor")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_role_right_Vendor : Equipment_hub.Record<Equipment_hub_role_right_Vendor>
@@ -1071,7 +1071,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_role_Vendor")]
+    [TableName("equipment_hub_role_vendor")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_role_Vendor : Equipment_hub.Record<Equipment_hub_role_Vendor>
@@ -1114,7 +1114,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Selected_Equipement")]
+    [TableName("equipment_hub_selected_equipement")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Selected_Equipement : Equipment_hub.Record<Equipment_hub_Selected_Equipement>
@@ -1157,7 +1157,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Vendor_Company")]
+    [TableName("equipment_hub_vendor_company")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Vendor_Company : Equipment_hub.Record<Equipment_hub_Vendor_Company>
@@ -1192,7 +1192,7 @@ namespace Equipment_hub.Data.Models
     }
 
 
-    [TableName("Equipment_hub_Vendor_Payments")]
+    [TableName("equipment_hub_vendor_payments")]
     [PrimaryKey("id")]
     [ExplicitColumns]
     public partial class Equipment_hub_Vendor_Payments : Equipment_hub.Record<Equipment_hub_Vendor_Payments>

@@ -48,7 +48,7 @@ namespace Equipment_hub.Models
          public List<Equipment_hub_Equipment_Activity_Movement_data> get_Equipment_Activity_Movement_linked(string sql)
          {
              var context = Equipment_hub.Data.Models.Equipment_hub.GetInstance();
-             var actual = context.Fetch<Equipment_hub_Equipment_Activity_Movement_data>( "select a.id , a.Activity_Status , a1.Activity_Status_Name  Activity_Status_data  , a.activity_date , a.Equipment_Activity , a2.Number_Of_Units  Equipment_Activity_data    from Equipment_hub_Equipment_Activity_Movement a  inner join  Equipment_hub_Activity_Status a1 on a.Activity_Status = a1.id  inner join  Equipment_hub_Equipment_Activity a2 on a.Equipment_Activity = a2.id "  + sql);
+             var actual = context.Fetch<Equipment_hub_Equipment_Activity_Movement_data>( "select a.id , a.Activity_Status , a1.Activity_Status_Name  Activity_Status_data  , a.activity_date , a.Equipment_Activity , a2.Number_Of_Units  Equipment_Activity_data    from equipment_hub_equipment_activity_movement a  inner join  equipment_hub_activity_status a1 on a.Activity_Status = a1.id  inner join  equipment_hub_equipment_activity a2 on a.Equipment_Activity = a2.id "  + sql);
              return actual;
          }  
          public List<Equipment_hub_Equipment_Activity_Movement> get_Equipment_Activity_Movement(string sql)

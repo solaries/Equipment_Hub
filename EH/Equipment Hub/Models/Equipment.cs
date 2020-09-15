@@ -48,7 +48,7 @@ namespace Equipment_hub.Models
          public List<Equipment_hub_Equipment_data> get_Equipment_linked(string sql)
          {
              var context = Equipment_hub.Data.Models.Equipment_hub.GetInstance();
-             var actual = context.Fetch<Equipment_hub_Equipment_data>( "select a.id , a.Equipment_Type , a1.Name_Of_Equipment  Equipment_Type_data  , a.Equipment_Code , a.Vendor , a2.first_name  Vendor_data    from Equipment_hub_Equipment a  inner join  Equipment_hub_Equipment_Type a1 on a.Equipment_Type = a1.id  inner join  Equipment_hub_authenticate_Vendor a2 on a.Vendor = a2.id "  + sql);
+             var actual = context.Fetch<Equipment_hub_Equipment_data>( "select a.id , a.Equipment_Type , a1.Name_Of_Equipment  Equipment_Type_data  , a.Equipment_Code , a.Vendor , a2.first_name  Vendor_data    from equipment_hub_equipment a  inner join  equipment_hub_equipment_type a1 on a.Equipment_Type = a1.id  inner join  equipment_hub_authenticate_vendor a2 on a.Vendor = a2.id "  + sql);
              return actual;
          }  
          public List<Equipment_hub_Equipment> get_Equipment(string sql)

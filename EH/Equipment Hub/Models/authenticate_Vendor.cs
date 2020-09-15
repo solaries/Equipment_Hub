@@ -48,7 +48,7 @@ namespace Equipment_hub.Models
          public List<Equipment_hub_authenticate_Vendor_data> get_authenticate_Vendor_linked(string sql)
          {
              var context = Equipment_hub.Data.Models.Equipment_hub.GetInstance();
-             var actual = context.Fetch<Equipment_hub_authenticate_Vendor_data>( "select a.id , a.first_name , a.last_name , a.email , a.role , a1.roleName  role_data  , a.password , a.password2 , a.activated , a.Company_Name , a2.Company_Name  Company_Name_data    from Equipment_hub_authenticate_Vendor a  inner join  Equipment_hub_role_Vendor a1 on a.role = a1.id  inner join  Equipment_hub_Vendor_Company a2 on a.Company_Name = a2.id "  + sql);
+             var actual = context.Fetch<Equipment_hub_authenticate_Vendor_data>( "select a.id , a.first_name , a.last_name , a.email , a.role , a1.roleName  role_data  , a.password , a.password2 , a.activated , a.Company_Name , a2.Company_Name  Company_Name_data    from equipment_hub_authenticate_vendor a  inner join  equipment_hub_role_vendor a1 on a.role = a1.id  inner join  equipment_hub_vendor_company a2 on a.Company_Name = a2.id "  + sql);
              return actual;
          }  
          public List<Equipment_hub_authenticate_Vendor> get_authenticate_Vendor(string sql)

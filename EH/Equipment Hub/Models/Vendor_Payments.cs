@@ -48,7 +48,7 @@ namespace Equipment_hub.Models
          public List<Equipment_hub_Vendor_Payments_data> get_Vendor_Payments_linked(string sql)
          {
              var context = Equipment_hub.Data.Models.Equipment_hub.GetInstance();
-             var actual = context.Fetch<Equipment_hub_Vendor_Payments_data>( "select a.id , a.Equipement_Activity , a1.Number_Of_Units  Equipement_Activity_data  , a.amount , a.Date_Payment_Was_Due , a.Date_Payment_Was_Made   from Equipment_hub_Vendor_Payments a  inner join  Equipment_hub_Equipment_Activity a1 on a.Equipement_Activity = a1.id "  + sql);
+             var actual = context.Fetch<Equipment_hub_Vendor_Payments_data>( "select a.id , a.Equipement_Activity , a1.Number_Of_Units  Equipement_Activity_data  , a.amount , a.Date_Payment_Was_Due , a.Date_Payment_Was_Made   from equipment_hub_vendor_payments a  inner join  equipment_hub_equipment_activity a1 on a.Equipement_Activity = a1.id "  + sql);
              return actual;
          }  
          public List<Equipment_hub_Vendor_Payments> get_Vendor_Payments(string sql)

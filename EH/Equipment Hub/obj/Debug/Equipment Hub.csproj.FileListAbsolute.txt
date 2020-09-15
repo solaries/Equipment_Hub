@@ -41,4 +41,3 @@ C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.WebPages.Dep
 C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\bin\System.Web.WebPages.Razor.xml
 C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\obj\Debug\Equipment Hub.dll
 C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\obj\Debug\Equipment Hub.pdb
-C:\code\equipment hub\Equipment_Hub\EH\Equipment Hub\obj\Debug\Equipment Hub.csprojResolveAssemblyReference.cache

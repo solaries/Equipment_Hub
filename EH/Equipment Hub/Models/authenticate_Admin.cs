@@ -48,7 +48,7 @@ namespace Equipment_hub.Models
          public List<Equipment_hub_authenticate_Admin_data> get_authenticate_Admin_linked(string sql)
          {
              var context = Equipment_hub.Data.Models.Equipment_hub.GetInstance();
-             var actual = context.Fetch<Equipment_hub_authenticate_Admin_data>( "select a.id , a.first_name , a.last_name , a.email , a.role , a1.roleName  role_data  , a.password , a.password2   from Equipment_hub_authenticate_Admin a  inner join  Equipment_hub_role_Admin a1 on a.role = a1.id "  + sql);
+             var actual = context.Fetch<Equipment_hub_authenticate_Admin_data>( "select a.id , a.first_name , a.last_name , a.email , a.role , a1.roleName  role_data  , a.password , a.password2   from equipment_hub_authenticate_admin a  inner join  equipment_hub_role_admin a1 on a.role = a1.id "  + sql);
              return actual;
          }  
          public List<Equipment_hub_authenticate_Admin> get_authenticate_Admin(string sql)

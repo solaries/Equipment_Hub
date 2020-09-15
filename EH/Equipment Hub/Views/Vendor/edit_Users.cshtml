@@ -1,6 +1,6 @@
 
 @{
-    List<Equipment_hub.Data.Models.Equipment_hub_role_Vendor> data0  =  ( List<Equipment_hub.Data.Models.Equipment_hub_role_Vendor>)@ViewBag.data0;
+    List<Equipment_hub.Models.Equipment_hub_role_Vendor_data> data0  =  ( List<Equipment_hub.Models.Equipment_hub_role_Vendor_data>)@ViewBag.data0;
 } 
  @{
  string sel = ""; 
@@ -52,7 +52,7 @@
                             <div class="col-lg-6">
                    <select class="form-control" id="Role" name="Role">
                    <option value="">Select Role</option>
-                   @foreach (Equipment_hub.Data.Models.Equipment_hub_role_Vendor item in data0)
+                   @foreach (Equipment_hub.Models.Equipment_hub_role_Vendor_data item in data0)
                    {
                        sel = "";
                        if (ViewBag.role == item.Id.ToString())

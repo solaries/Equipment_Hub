@@ -48,7 +48,7 @@ namespace Equipment_hub.Models
          public List<Equipment_hub_role_right_Vendor_data> get_role_right_Vendor_linked(string sql)
          {
              var context = Equipment_hub.Data.Models.Equipment_hub.GetInstance();
-             var actual = context.Fetch<Equipment_hub_role_right_Vendor_data>( "select a.id , a.role , a1.roleName  role_data  , a.right , a2.rightName  right_data    from Equipment_hub_role_right_Vendor a  inner join  Equipment_hub_role_Vendor a1 on a.role = a1.id  inner join  Equipment_hub_right_Vendor a2 on a.right = a2.id "  + sql);
+             var actual = context.Fetch<Equipment_hub_role_right_Vendor_data>( "select a.id , a.role , a1.roleName  role_data  , a.right , a2.rightName  right_data    from equipment_hub_role_right_vendor a  inner join  equipment_hub_role_vendor a1 on a.role = a1.id  inner join  equipment_hub_right_vendor a2 on a.right = a2.id "  + sql);
              return actual;
          }  
          public List<Equipment_hub_role_right_Vendor> get_role_right_Vendor(string sql)

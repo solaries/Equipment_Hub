@@ -5344,6 +5344,7 @@
     <Content Include="assets\plugins\typeahedjs\dist\nba.json" />
     <Content Include="assets\plugins\typeahedjs\dist\nfl.json" />
     <Content Include="assets\plugins\typeahedjs\dist\nhl.json" />
+    <None Include="Properties\PublishProfiles\equipent hub.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

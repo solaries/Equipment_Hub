@@ -239,7 +239,8 @@ namespace Equipment_hub.Controllers
                 byte[] arr = Encoding.ASCII.GetBytes( Audit.GetEncodedHash(strRND, "doing it well")); 
  
                 string Company_name =  centralCalls.add_new_Customer_Company(Company_name:  Company_name_Company_name, returnID: true);
-                response =  centralCalls.add_new_authenticate_Customer(First_name:  First_name,Last_name:  Last_name,Email:  Email,Password: Encoding.ASCII.GetString(arr)  ,Password2: Encoding.ASCII.GetString(arr)  ,Activated:  Activated,Company_name:  Company_name);
+               // response = Company_name;    
+            response =  centralCalls.add_new_authenticate_Customer(First_name:  First_name,Last_name:  Last_name,Email:  Email,Password: Encoding.ASCII.GetString(arr)  ,Password2: Encoding.ASCII.GetString(arr)  ,Activated:  Activated,Company_name:  Company_name);
                 if(response.IndexOf("uccessf") > -1 ){
                     string mailSubject = "Customer Profile creation on (code joh) Equipment HUB";
                     string mailBody = "Hi <br><br>You have been successfully profiled on the (code joh) Equipment HUB platform. Please log in with following credentials: <br><br> Email: " + Email + "<br><br>password : " + strRND + "<br><br><br>Regards<br><br>";
